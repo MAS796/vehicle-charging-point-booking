@@ -1,0 +1,12 @@
+.admin-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.admin-links a {
+  padding: 10px 16px;
+  background: #0077ff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
