@@ -1,13 +1,79 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
   background: #111827;
   color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .header a {
   color: white;
-  margin-left: 1rem;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+.header a:hover {
+  color: #3498db;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid #3f3f46;
+}
+
+.user-menu span {
+  font-size: 0.95rem;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+}
+
+.auth-links {
+  display: flex;
+  gap: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid #3f3f46;
+}
+
+.login-link {
+  color: #3498db !important;
+}
+
+.register-link {
+  background: #3498db;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: white !important;
+  transition: background 0.3s;
+}
+
+.register-link:hover {
+  background: #2980b9;
 }

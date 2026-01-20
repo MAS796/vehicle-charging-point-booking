@@ -22,9 +22,10 @@ export default function Payment() {
 
   const confirmPayment = async () => {
     try {
-      await api.post("/payments", {
+      await api.post("/payments/process", {
         booking_id,
         amount,
+        phone,
       });
       navigate("/");
     } catch {

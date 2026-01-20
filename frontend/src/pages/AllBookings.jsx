@@ -4,9 +4,12 @@ import api from "../services/api";
 export default function AllBookings() {
   const [bookings, setBookings] = useState([]);
   const [error, setError] = useState("");
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   useEffect(() => {
-    api.get("/bookings")
+    api.get("/admin/bookings", {
+      params: { user_id: user.id }
+    })
       .then(res => setBookings(res.data))
       .catch(() => setError("Backend not running or no bookings yet."));
   }, []);

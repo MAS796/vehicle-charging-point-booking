@@ -6,7 +6,7 @@ from app.database import Base, engine
 from app import models
 
 # ✅ IMPORT ROUTERS
-from app.routers import bookings, stations, payments, admin
+from app.routers import auth, bookings, stations, payments, admin
 
 # ✅ CREATE APP
 app = FastAPI(title="Vehicle Charging Point Booking API")
@@ -24,6 +24,7 @@ app.add_middleware(
 )
 
 # ✅ INCLUDE ROUTERS
+app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 app.include_router(bookings.router, prefix="/bookings", tags=["Bookings"])
 app.include_router(stations.router, prefix="/stations", tags=["Stations"])
 app.include_router(payments.router, prefix="/payments", tags=["Payments"])
