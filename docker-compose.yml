@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ev-backend
+    restart: always
+    expose:
+      - "8000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - DATABASE_URL=sqlite:///./charging.db
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - backend-data:/app/data
+    networks:
+      - ev-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ev-frontend
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - ev-network
+    depends_on:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    container_name: ev-nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - ev-network
+    depends_on:
+      - frontend
+      - backend
+
+networks:
+  ev-network:
+    driver: bridge
+
+volumes:
+  backend-data:

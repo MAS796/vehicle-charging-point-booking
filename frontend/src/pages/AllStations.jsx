@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../services/api";
+import { getErrorMessage } from "../utils/error";
 
 export default function AllStations() {
   const [stations, setStations] = useState([]);
@@ -21,12 +22,11 @@ export default function AllStations() {
 
   const fetchStations = async () => {
     try {
-      const res = await api.get("/admin/stations", {
-        params: { user_id: user.id }
-      });
+      const res = await api.get("/stations/");
       setStations(res.data);
     } catch (err) {
       setError("Failed to fetch stations.");
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -38,8 +38,13 @@ export default function AllStations() {
   const addStation = async (e) => {
     e.preventDefault();
     try {
-      await api.post("/admin/stations", form, {
-        params: { user_id: user.id }
+      await api.post("/stations/", {
+        ...form,
+        latitude: parseFloat(form.latitude),
+        longitude: parseFloat(form.longitude),
+        available_slots: parseInt(form.available_slots),
+        opening_time: "06:00:00",
+        closing_time: "22:00:00"
       });
       setForm({
         name: "",
@@ -50,8 +55,10 @@ export default function AllStations() {
         available_slots: 5,
       });
       fetchStations();
+      alert("Station added successfully!");
     } catch (err) {
-      setError("Failed to add station.");
+      setError("Failed to add station: " + getErrorMessage(err));
+      console.error(err);
     }
   };
 
@@ -63,7 +70,7 @@ export default function AllStations() {
         });
         fetchStations();
       } catch (err) {
-        setError("Failed to delete station.");
+        setError("Failed to delete station: " + getErrorMessage(err));
       }
     }
   };

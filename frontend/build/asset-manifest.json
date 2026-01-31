@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e8e2ab39.css",
+    "main.js": "/static/js/main.ce2caefc.js",
+    "static/media/ev-hero.jpg": "/static/media/ev-hero.da08da6585769e2de346.jpg",
+    "index.html": "/index.html",
+    "main.e8e2ab39.css.map": "/static/css/main.e8e2ab39.css.map",
+    "main.ce2caefc.js.map": "/static/js/main.ce2caefc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e8e2ab39.css",
+    "static/js/main.ce2caefc.js"
+  ]
+}

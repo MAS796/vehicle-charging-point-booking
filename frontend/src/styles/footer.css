@@ -1,7 +1,103 @@
 .footer {
-  padding: 1rem;
+  padding: 2rem 1rem;
   text-align: center;
-  background: #111827;
+  background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
   color: white;
-  margin-top: 2rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
+
+/* Support Footer Enhancement */
+.support-footer {
+  padding: 60px 20px 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.footer-section p {
+  color: #ccc;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.footer-link {
+  color: #0099ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #00ccff;
+}
+
+.partners-list {
+  color: #aaa;
+  font-size: 0.95em;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.app-buttons button {
+  padding: 8px 16px;
+  background: #0099ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 0.9em;
+}
+
+.app-buttons button:hover {
+  background: #00ccff;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #999;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .app-buttons {
+    flex-direction: column;
+  }
+
+  .app-buttons button {
+    width: 100%;
+  }
+}
+

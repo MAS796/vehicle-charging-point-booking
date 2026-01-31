@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import api from "../services/api";
+import { getErrorMessage } from "../utils/error";
 
 export default function Payment() {
   const { state } = useLocation();
@@ -28,8 +29,8 @@ export default function Payment() {
         phone,
       });
       navigate("/");
-    } catch {
-      setError("Payment failed. Backend not running yet.");
+    } catch (err) {
+      setError("Payment failed: " + getErrorMessage(err));
     }
   };
 

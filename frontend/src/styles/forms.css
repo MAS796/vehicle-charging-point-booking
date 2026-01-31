@@ -148,3 +148,108 @@ input, select {
 .form-footer a:hover {
   text-decoration: underline;
 }
+
+/* ===== Progress Steps ===== */
+.progress-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.step.active .step-number {
+  background: #3498db;
+  color: white;
+}
+
+.step-label {
+  font-size: 12px;
+  color: #999;
+}
+
+.step.active .step-label {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.step-line {
+  width: 50px;
+  height: 3px;
+  background: #e0e0e0;
+  margin: 0 10px;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+}
+
+.step-line.active {
+  background: #3498db;
+}
+
+/* ===== OTP Input ===== */
+.otp-input {
+  font-size: 24px !important;
+  letter-spacing: 8px;
+  text-align: center;
+}
+
+.otp-info {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* ===== Success Message ===== */
+.success-message {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border-left: 4px solid #2e7d32;
+}
+
+/* ===== Secondary Button ===== */
+.btn-secondary {
+  background: #f5f5f5 !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e0e0e0 !important;
+}
+
+/* ===== Link Button ===== */
+.btn-link {
+  background: transparent !important;
+  color: #3498db !important;
+  font-weight: normal !important;
+}
+
+.btn-link:hover:not(:disabled) {
+  background: transparent !important;
+  text-decoration: underline;
+}
+

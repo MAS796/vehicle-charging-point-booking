@@ -1,0 +1,394 @@
+/* OTP Login Page Styling */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1f2e 0%, #16213e 100%);
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.login-card {
+  background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  color: #7dd3fc;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: translateX(-5px);
+  color: #38bdf8;
+}
+
+/* Icons */
+.phone-icon,
+.otp-icon {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 20px;
+  animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.otp-icon {
+  background: rgba(79, 207, 170, 0.1);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border: 2px solid #4fcfaa;
+}
+
+/* Typography */
+.login-card h2 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #94a3b8;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+/* Form Groups */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #e2e8f0;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Form Inputs */
+.form-input,
+.otp-input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input:focus,
+.otp-input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #4fcfaa;
+  box-shadow: 0 0 0 3px rgba(79, 207, 170, 0.1);
+}
+
+.form-input::placeholder {
+  color: #64748b;
+}
+
+/* Phone Input */
+.phone-input {
+  display: flex;
+  gap: 0;
+}
+
+.country-code {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+  padding: 12px 12px;
+  border-radius: 10px 0 0 10px;
+  color: #94a3b8;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.phone-input .form-input {
+  border-radius: 0 10px 10px 0;
+  flex: 1;
+}
+
+.help-text {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* OTP Sent Info */
+.otp-sent {
+  text-align: center;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.otp-sent strong {
+  color: #4fcfaa;
+}
+
+/* OTP Inputs */
+.otp-inputs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.otp-input {
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  height: 50px;
+  border-radius: 12px;
+}
+
+/* Test OTP Display (Development) */
+.test-otp-display {
+  background: rgba(79, 207, 170, 0.1);
+  border: 1px solid rgba(79, 207, 170, 0.3);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.test-otp-display p {
+  color: #4fcfaa;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Buttons */
+.save-btn {
+  background: linear-gradient(135deg, #4fcfaa 0%, #3db89f 100%);
+  color: #0f1419;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.save-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(79, 207, 170, 0.3);
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Resend Button */
+.resend-btn {
+  background: transparent;
+  color: #4fcfaa;
+  border: none;
+  padding: 8px 0;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+.resend-btn:hover {
+  color: #38bdf8;
+}
+
+/* Agreement Text */
+.agreement {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Error Message */
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Welcome Card */
+.welcome-card {
+  background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.city-illustration {
+  font-size: 80px;
+  margin-bottom: 30px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.welcome-card h2 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.welcome-text {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.continue-btn {
+  background: linear-gradient(135deg, #4fcfaa 0%, #3db89f 100%);
+  color: #0f1419;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.continue-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(79, 207, 170, 0.3);
+}
+
+/* Divider */
+.divider {
+  color: #475569;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+/* Social Login */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-btn span {
+  font-weight: 700;
+}
+
+.social-btn.facebook:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+.social-btn.google:hover {
+  border-color: #ea4335;
+  color: #ea4335;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card,
+  .welcome-card {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .login-card h2 {
+    font-size: 24px;
+  }
+
+  .save-btn {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .city-illustration {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+
+  .welcome-card h2 {
+    font-size: 20px;
+  }
+}

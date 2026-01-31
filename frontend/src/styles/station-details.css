@@ -1,0 +1,371 @@
+.station-details-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+/* Network Statistics Banner */
+.network-stats-banner {
+  background: linear-gradient(90deg, #0066cc 0%, #6600cc 100%);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.stats-content h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.stats-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #e0e0ff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.stat-label {
+  color: #c0d0ff;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Emergency Support Banner */
+.emergency-banner {
+  background: linear-gradient(90deg, #cc0000 0%, #ff6600 100%);
+  color: white;
+  padding: 20px;
+}
+
+.emergency-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.emergency-content h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.emergency-content p {
+  color: #ffe0e0;
+}
+
+.emergency-btn {
+  background: white;
+  color: #cc0000;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.emergency-btn:hover {
+  background: #ffe0e0;
+  transform: scale(1.05);
+}
+
+/* Station Details */
+.station-details {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.station-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 20px;
+}
+
+.station-header h2 {
+  font-size: 2.5em;
+  color: #333;
+  margin: 0;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.status-badge.open {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-badge.closed {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.station-info {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.station-info p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* Charger Types */
+.charger-types {
+  margin-bottom: 30px;
+}
+
+.charger-types h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.charger-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.charger-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f0f7ff;
+  border-left: 4px solid #0066cc;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.status-available {
+  background: #4caf50;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+}
+
+/* Form Styles */
+.form {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px solid #e0e0e0;
+}
+
+.form h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: inherit;
+}
+
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+}
+
+.form input:disabled,
+.form select:disabled {
+  background: #e0e0e0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(90deg, #0066cc 0%, #0052a3 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: linear-gradient(90deg, #0052a3 0%, #003d7a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 102, 204, 0.4);
+}
+
+.submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Payment Section */
+.payment-section {
+  margin-bottom: 30px;
+}
+
+.payment-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.payment-btn {
+  padding: 15px;
+  background: white;
+  border: 2px solid #0066cc;
+  color: #0066cc;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-btn:hover {
+  background: #0066cc;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Closed Message */
+.closed-message {
+  background: #ffebee;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border-left: 4px solid #c62828;
+}
+
+.closed-message p {
+  color: #c62828;
+  font-size: 1.1em;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+/* Support Footer */
+.support-footer {
+  background: #1a1a2e;
+  color: white;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.footer-section h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  color: #0099ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #00ccff;
+}
+
+/* Loading State */
+.loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  color: #0066cc;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .station-details {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .station-header h2 {
+    font-size: 1.8em;
+  }
+
+  .emergency-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charger-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,46 +1,204 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 65vh;
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  background:
+    linear-gradient(rgba(10,15,35,0.85), rgba(10,15,35,0.9)),
+    url("../assets/ev-hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
 .home-hero {
   position: relative;
-  height: 380px;
+  flex: 1;
+  min-height: 85vh;
+  background: url("../assets/ev-hero.jpg") center center / cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
-.home-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Dark overlay for professional readability */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 15, 35, 0.85) 0%,
+    rgba(15, 23, 42, 0.75) 50%,
+    rgba(10, 10, 25, 0.9) 100%
+  );
+  z-index: 1;
 }
 
 .home-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.65);
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 70px 90px;
+  text-align: center;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  max-width: 750px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  animation: fadeUp 1s ease-out;
 }
 
 .home-overlay h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  font-size: 4.8rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, #ffffff, #9fa8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .home-overlay p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: #e0e7ff;
+  font-weight: 300;
 }
 
 .home-overlay button {
-  padding: 12px 22px;
-  background: #0077ff;
+  padding: 15px 45px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   border: none;
-  border-radius: 6px;
+  border-radius: 50px;
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+}
+
+.home-overlay button:hover:not(:disabled) {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.7);
+}
+
+.home-overlay button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .error {
-  margin-top: 1rem;
-  color: #ffb4b4;
+  margin-top: 1.5rem;
+  color: #ff6b6b;
+  font-size: 1rem;
+  padding: 12px;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid #ff6b6b;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stations-container {
+  flex: 1;
+  padding: 60px 20px;
+  background: transparent;
+  min-height: auto;
+}
+
+.stations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.station-card {
+  background: transparent;
+  border-radius: 12px;
+  padding: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #1b264a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.station-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.station-card h3 {
+  color: #e9ebf3;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.station-card .address {
+  color: #dde0e7;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.station-card .distance {
+  color: #d5d8e4;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-overlay {
+    padding: 40px 30px;
+    border-radius: 15px;
+  }
+
+  .home-overlay h1 {
+    font-size: 2.2rem;
+  }
+
+  .home-overlay p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .home-overlay button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .stations-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stations-container {
+    padding: 40px 15px;
+  }
 }

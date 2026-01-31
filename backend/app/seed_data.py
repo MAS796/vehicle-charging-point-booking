@@ -1,5 +1,5 @@
-from app.database import SessionLocal
-from app.models import ChargingStation
+from .database import SessionLocal
+from .models import ChargingStation
 from datetime import time
 
 db = SessionLocal()

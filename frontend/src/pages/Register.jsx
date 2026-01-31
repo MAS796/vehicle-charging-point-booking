@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
+import { getErrorMessage } from "../utils/error";
 import "../styles/forms.css";
 
 export default function Register() {
@@ -52,7 +53,7 @@ export default function Register() {
       navigate("/");
       window.location.reload();
     } catch (err) {
-      setError(err.response?.data?.detail || "Registration failed");
+      setError(getErrorMessage(err, "Registration failed"));
       setLoading(false);
     }
   };
