@@ -1,60 +1,76 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-import "../styles/forms.css";
+import { getErrorMessage } from "../utils/error";
+import "../styles/login-simple.css";
 
-export default function Login() {
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+const Login = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  // Check if user is already logged in
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
+    if (user && token) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
-    setLoading(true);
 
+    if (!email || !password) {
+      setError("Please enter email and password");
+      return;
+    }
+
+    setLoading(true);
     try {
-      const response = await api.post("/auth/login", form);
-      
-      // Store token and user info in localStorage
-      localStorage.setItem("token", response.data.access_token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-      
-      // Redirect to home
-      navigate("/");
-      window.location.reload();
+      const res = await api.post("/auth/login", {
+        email,
+        password,
+      });
+
+      localStorage.setItem("token", res.data.access_token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      localStorage.setItem("email", res.data.user.email);
+
+      // Trigger storage event for Header to update
+      window.dispatchEvent(new Event("storage"));
+
+      navigate("/dashboard");
     } catch (err) {
-      setError(err.response?.data?.detail || "Login failed");
+      setError(getErrorMessage(err, "Invalid email or password"));
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="container form-container">
-      <div className="form-card">
-        <h2>Login</h2>
+    <div className="login-container">
+      <div className="login-card">
+        <h1>Login</h1>
+        <p className="subtitle">Welcome back! Login to your account</p>
 
-        {error && <div className="error-message">{error}</div>}
+        <form onSubmit={handleLogin} autoComplete="off">
+          {error && <div className="error-message">{error}</div>}
 
-        <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Email</label>
+            <label>Email Address</label>
             <input
               type="email"
-              name="email"
-              placeholder="your@email.com"
-              value={form.email}
-              onChange={handleChange}
-              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder=""
+              className="form-input"
+              disabled={loading}
+              autoComplete="off"
+              style={{ color: '#1a1f2e', WebkitTextFillColor: '#1a1f2e' }}
             />
           </div>
 
@@ -62,23 +78,27 @@ export default function Login() {
             <label>Password</label>
             <input
               type="password"
-              name="password"
-              placeholder="Enter password"
-              value={form.password}
-              onChange={handleChange}
-              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder=""
+              className="form-input"
+              disabled={loading}
+              autoComplete="new-password"
+              style={{ color: '#1a1f2e', WebkitTextFillColor: '#1a1f2e' }}
             />
           </div>
 
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading} className="btn-primary">
             {loading ? "Logging in..." : "Login"}
           </button>
-        </form>
 
-        <p className="form-footer">
-          Don't have an account? <Link to="/register">Register here</Link>
-        </p>
+          <p className="link-text">
+            New user? <a href="/register">Create account</a>
+          </p>
+        </form>
       </div>
     </div>
   );
-}
+};
+
+export default Login;
