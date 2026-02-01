@@ -1,1 +1,10 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>EV Charging</title><meta name="viewport" content="width=device-width,initial-scale=1"/><script defer="defer" src="/vehicle-charging-point-booking/static/js/main.e7cfb773.js"></script><link href="/vehicle-charging-point-booking/static/css/main.9d25fdbc.css" rel="stylesheet"></head><body><div id="root"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>EV Charging</title><meta name="viewport" content="width=device-width,initial-scale=1"/><script type="text/javascript">
+(function(){
+  if(window.location.pathname === '/vehicle-charging-point-booking/') return;
+  var l = window.location;
+  if(l.pathname.split('/')[1] === 'vehicle-charging-point-booking') {
+    var pathWithoutBase = l.pathname.replace('/vehicle-charging-point-booking', '');
+    window.history.replaceState(null, null, pathWithoutBase + l.search + l.hash);
+  }
+})();
+</script><script defer="defer" src="/vehicle-charging-point-booking/static/js/main.e7cfb773.js"></script><link href="/vehicle-charging-point-booking/static/css/main.9d25fdbc.css" rel="stylesheet"></head><body><div id="root"></div></body></html>
