@@ -1,17 +1,18 @@
 import axios from "axios";
 
-// Get backend URL - use /api for production (nginx proxy) or localhost for dev
+// Get backend URL - use relative path for production (nginx proxy) or localhost for dev
 const getBackendURL = () => {
-  // In production (Docker/EC2), use /api which nginx will proxy to backend
+  // In production (EC2/Docker with nginx), use relative /api path
+  // Nginx will proxy /api/* requests to the backend container
   if (process.env.NODE_ENV === "production") {
-    return "/api";
+    return "";  // Empty string = relative URLs, nginx handles routing
   }
   // If REACT_APP_API_URL is set, use it
   if (process.env.REACT_APP_API_URL) {
     return process.env.REACT_APP_API_URL;
   }
   // Development: use localhost backend
-  return "http://127.0.0.1:8000";
+  return "http://localhost:8000";
 };
 
 const api = axios.create({

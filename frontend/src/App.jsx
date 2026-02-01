@@ -8,7 +8,7 @@ import "./styles/main.css";
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter basename="/vehicle-charging-point-booking">
+      <BrowserRouter>
         <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
           <Header />
           <main style={{ flex: 1 }}>
