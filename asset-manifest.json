@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/vehicle-charging-point-booking/static/css/main.9d25fdbc.css",
+    "main.js": "/vehicle-charging-point-booking/static/js/main.e7cfb773.js",
+    "static/media/ev-hero.jpg": "/vehicle-charging-point-booking/static/media/ev-hero.da08da6585769e2de346.jpg",
+    "index.html": "/vehicle-charging-point-booking/index.html",
+    "main.9d25fdbc.css.map": "/vehicle-charging-point-booking/static/css/main.9d25fdbc.css.map",
+    "main.e7cfb773.js.map": "/vehicle-charging-point-booking/static/js/main.e7cfb773.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d25fdbc.css",
+    "static/js/main.e7cfb773.js"
+  ]
+}
