@@ -6,3 +6,5 @@ python-dotenv
 pydantic[email]
 python-jose[cryptography]
 passlib[bcrypt]
+fastapi-mail
+aiosmtplib

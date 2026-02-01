@@ -59,65 +59,78 @@ async def register_new_user(data: OTPRequest, db: Session = Depends(get_db)):
     - Stores OTP in database
     - Returns success message
     """
-    # Check if user already exists
-    existing_user = get_user_by_email(db, data.email)
-    
-    if existing_user:
-        if existing_user.is_verified and existing_user.password_hash:
-            raise HTTPException(
-                status_code=status.HTTP_409_CONFLICT,
-                detail="User already exists. Please login instead."
-            )
-        # User exists but not verified - resend OTP
+    try:
+        # Check if user already exists
+        existing_user = get_user_by_email(db, data.email)
+        
+        if existing_user:
+            if existing_user.is_verified and existing_user.password_hash:
+                raise HTTPException(
+                    status_code=status.HTTP_409_CONFLICT,
+                    detail="User already exists. Please login instead."
+                )
+            # User exists but not verified - resend OTP
+            otp = generate_otp()
+            existing_user.otp = otp
+            existing_user.otp_expires_at = get_otp_expiry()
+            existing_user.name = data.name
+            existing_user.phone = data.phone
+            db.commit()
+            
+            # Send OTP via email
+            try:
+                await send_otp_email(data.email, otp)
+                print(f"[SUCCESS] OTP email sent to {data.email}")
+            except Exception as e:
+                print(f"[EMAIL ERROR] {str(e)}")
+                # Fallback: print OTP for development
+                print(f"[DEV] OTP for {data.email}: {otp}")
+            
+            return {
+                "message": "OTP sent to your email",
+                "email": data.email,
+                "success": True,
+                "dev_otp": otp  # For development/testing
+            }
+        
+        # Create new unverified user
         otp = generate_otp()
-        existing_user.otp = otp
-        existing_user.otp_expires_at = get_otp_expiry()
-        existing_user.name = data.name
-        existing_user.phone = data.phone
+        new_user = models.User(
+            email=data.email,
+            name=data.name,
+            phone=data.phone,
+            otp=otp,
+            otp_expires_at=get_otp_expiry(),
+            is_verified=False,
+            password_hash=None  # No password yet
+        )
+        
+        db.add(new_user)
         db.commit()
         
         # Send OTP via email
         try:
             await send_otp_email(data.email, otp)
+            print(f"[SUCCESS] OTP email sent to {data.email}")
         except Exception as e:
-            print(f"[EMAIL ERROR] {e}")
+            print(f"[EMAIL ERROR] {str(e)}")
             # Fallback: print OTP for development
             print(f"[DEV] OTP for {data.email}: {otp}")
         
         return {
             "message": "OTP sent to your email",
             "email": data.email,
-            "success": True
+            "success": True,
+            "dev_otp": otp  # For development/testing
         }
-    
-    # Create new unverified user
-    otp = generate_otp()
-    new_user = models.User(
-        email=data.email,
-        name=data.name,
-        phone=data.phone,
-        otp=otp,
-        otp_expires_at=get_otp_expiry(),
-        is_verified=False,
-        password_hash=None  # No password yet
-    )
-    
-    db.add(new_user)
-    db.commit()
-    
-    # Send OTP via email
-    try:
-        await send_otp_email(data.email, otp)
+    except HTTPException:
+        raise
     except Exception as e:
-        print(f"[EMAIL ERROR] {e}")
-        # Fallback: print OTP for development
-        print(f"[DEV] OTP for {data.email}: {otp}")
-    
-    return {
-        "message": "OTP sent to your email",
-        "email": data.email,
-        "success": True
-    }
+        print(f"[ERROR] Registration failed: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Registration failed: {str(e)}"
+        )
 
 
 @router.post("/verify-otp")
