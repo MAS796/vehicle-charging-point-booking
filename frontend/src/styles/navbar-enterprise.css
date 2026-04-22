@@ -1,0 +1,63 @@
+/* Enterprise Navbar Styles */
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #00c853;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #e2e8f0;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00c853;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-inner {
+    padding: 0 20px;
+  }
+
+  .nav-links a {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}

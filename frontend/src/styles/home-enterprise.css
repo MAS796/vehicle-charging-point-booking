@@ -1,0 +1,268 @@
+/* Enterprise Home Page Styles - Scoped to .home-enterprise */
+
+.home-enterprise {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+}
+
+.home-enterprise .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+/* Hero Section */
+.home-enterprise .hero {
+  padding-top: 40px;
+  background: #0f172a;
+}
+
+.home-enterprise .hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.home-enterprise .hero-left {
+  flex: 1;
+}
+
+.home-enterprise .hero-right {
+  flex: 1;
+}
+
+.home-enterprise .hero h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.home-enterprise .hero p {
+  color: #94a3b8;
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.home-enterprise .hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.home-enterprise .btn-primary {
+  background: #00c853;
+  padding: 14px 28px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.home-enterprise .btn-primary:hover {
+  background: #00a844;
+  transform: translateY(-2px);
+}
+
+.home-enterprise .btn-outline {
+  border: 1px solid #00c853;
+  padding: 14px 28px;
+  border-radius: 8px;
+  color: #00c853;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.home-enterprise .btn-outline:hover {
+  background: rgba(0, 200, 83, 0.1);
+}
+
+.home-enterprise .dashboard-preview {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Problem Section */
+.home-enterprise .problem {
+  background: #0f172a;
+}
+
+.home-enterprise .problem h2,
+.home-enterprise .features h2,
+.home-enterprise .cta h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #fff;
+}
+
+.home-enterprise .problem-grid,
+.home-enterprise .features-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.home-enterprise .problem-card,
+.home-enterprise .feature-card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-enterprise .problem-card:hover,
+.home-enterprise .feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 200, 83, 0.1);
+}
+
+.home-enterprise .problem-card h4 {
+  color: #00c853;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.home-enterprise .problem-card p {
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Features Section */
+.home-enterprise .features {
+  background: #0f172a;
+}
+
+.home-enterprise .feature-card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  color: #e2e8f0;
+  font-weight: 500;
+  font-size: 16px;
+  border: 1px solid transparent;
+}
+
+.home-enterprise .feature-card:hover {
+  border-color: #00c853;
+}
+
+/* Metrics Section */
+.home-enterprise .metrics {
+  background: #0f172a;
+}
+
+.home-enterprise .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 30px;
+}
+
+.home-enterprise .metrics h3 {
+  font-size: 42px;
+  color: #00c853;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.home-enterprise .metrics p {
+  color: #94a3b8;
+  margin: 0;
+  font-size: 16px;
+}
+
+/* CTA Section */
+.home-enterprise .cta {
+  text-align: center;
+  background: #0f172a;
+  padding-bottom: 100px;
+}
+
+.home-enterprise .cta h2 {
+  margin-bottom: 30px;
+}
+
+/* Fade-in Animation */
+.home-enterprise .fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-enterprise .problem.fade-in {
+  animation-delay: 0.2s;
+}
+
+.home-enterprise .features.fade-in {
+  animation-delay: 0.4s;
+}
+
+.home-enterprise .metrics.fade-in {
+  animation-delay: 0.6s;
+}
+
+.home-enterprise .cta.fade-in {
+  animation-delay: 0.8s;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .home-enterprise .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-enterprise .hero h1 {
+    font-size: 36px;
+  }
+
+  .home-enterprise .hero-buttons {
+    justify-content: center;
+  }
+
+  .home-enterprise .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .home-enterprise .container {
+    padding: 60px 20px;
+  }
+
+  .home-enterprise .hero h1 {
+    font-size: 28px;
+  }
+
+  .home-enterprise .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-enterprise .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-enterprise .metrics h3 {
+    font-size: 32px;
+  }
+}

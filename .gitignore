@@ -1,0 +1,47 @@
+﻿# Python
+venv/
+.venv/
+backend/venv/
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+.pytest_cache/
+.codex-pydeps/
+.rebase-backup/
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Logs
+*.log
+*.err.log
+*.out.log
+backend/*.log
+frontend/*.log
+
+# Environment
+.env
+**/.env
+**/.env.*
+!.env.example
+!backend/.env.example
+!backend/.env.production.example
+!frontend/.env.example
+!frontend/.env.production.example
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.vercel/
+
+# Secrets
+*.pem
+frontend/android/keystore.properties
+frontend/android/*.jks
+frontend/android/*.keystore

@@ -1,0 +1,142 @@
+.all-stations-page {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(53, 146, 255, 0.18), transparent 30%),
+    radial-gradient(circle at 85% 15%, rgba(0, 198, 255, 0.14), transparent 24%),
+    linear-gradient(180deg, #0b1d3a 0%, #081529 100%);
+}
+
+.all-stations-page::before,
+.all-stations-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.all-stations-page::before {
+  width: 260px;
+  height: 260px;
+  top: 60px;
+  right: -60px;
+  background: rgba(0, 198, 255, 0.22);
+}
+
+.all-stations-page::after {
+  width: 320px;
+  height: 320px;
+  bottom: 80px;
+  left: -90px;
+  background: rgba(38, 112, 255, 0.18);
+}
+
+.all-stations-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.all-stations-title {
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.all-stations-subtitle,
+.all-stations-summary {
+  color: rgba(214, 227, 255, 0.76);
+}
+
+.all-stations-error {
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  background: rgba(127, 29, 29, 0.28);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.search-panel,
+.station-admin-panel,
+.station-card-premium {
+  border: 1px solid rgba(118, 176, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(15, 33, 62, 0.94), rgba(8, 21, 41, 0.96)),
+    radial-gradient(circle at top right, rgba(0, 198, 255, 0.12), transparent 42%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(18px);
+}
+
+.search-panel {
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.station-admin-panel {
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+.station-search-input,
+.station-form-input {
+  border: 1px solid rgba(118, 176, 255, 0.22);
+  background: rgba(10, 22, 42, 0.88);
+  box-shadow: inset 0 1px 0 rgba(187, 222, 255, 0.06);
+}
+
+.station-search-input:focus,
+.station-form-input:focus {
+  border-color: rgba(74, 205, 255, 0.9);
+  box-shadow: 0 0 0 3px rgba(0, 198, 255, 0.16);
+}
+
+.station-admin-form,
+.station-grid {
+  gap: 24px;
+}
+
+.station-card-premium {
+  padding: 20px;
+  border-radius: 20px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.station-card-premium:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 198, 255, 0.4);
+  box-shadow: 0 20px 34px rgba(0, 0, 0, 0.34);
+}
+
+.station-meta-row {
+  color: rgba(214, 227, 255, 0.72);
+}
+
+.station-primary-btn {
+  border: 1px solid rgba(144, 230, 255, 0.22);
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  box-shadow: 0 14px 24px rgba(0, 114, 255, 0.28);
+}
+
+.station-primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 30px rgba(0, 114, 255, 0.34);
+  filter: saturate(1.05);
+}
+
+.station-delete-btn {
+  border: 1px solid rgba(248, 113, 113, 0.34);
+  background: rgba(248, 113, 113, 0.12);
+  color: #fecaca;
+}
+
+.station-delete-btn:hover {
+  background: rgba(248, 113, 113, 0.2);
+}
+
+@media (max-width: 768px) {
+  .all-stations-page {
+    padding: 24px 16px;
+  }
+
+  .search-panel,
+  .station-admin-panel,
+  .station-card-premium {
+    padding: 18px;
+  }
+}

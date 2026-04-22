@@ -1,0 +1,26 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+pydantic[email]
+python-dotenv
+passlib[bcrypt]
+python-jose[cryptography]
+psycopg2-binary
+python-multipart
+google-auth
+slowapi
+fastapi-mail
+aiosmtplib
+gunicorn
+websockets
+wsproto
+razorpay
+reportlab
+apscheduler
+
+# AI/ML packages
+openai>=1.0.0
+scikit-learn
+numpy
+pandas

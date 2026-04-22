@@ -1,0 +1,51 @@
+{
+  "name": "frontend-vite",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0 <21 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "node ./run_vite.mjs --configLoader runner",
+    "build": "node ./run_vite.mjs build --configLoader runner",
+    "build:local": "node ./run_vite_local_build.mjs",
+    "lint": "eslint .",
+    "preview": "node ./run_vite.mjs preview --configLoader runner",
+    "preview:local": "node ./run_vite.mjs preview --configLoader runner --host 127.0.0.1 --port 4173"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0",
+    "@capacitor/ios": "^8.2.0",
+    "@react-oauth/google": "^0.13.4",
+    "axios": "^1.13.4",
+    "framer-motion": "^12.34.0",
+    "i18next": "^25.8.4",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "leaflet": "^1.9.4",
+    "lottie-react": "^2.4.1",
+    "react": "^19.2.0",
+    "react-countup": "^6.5.3",
+    "react-dom": "^19.2.0",
+    "react-i18next": "^16.5.4",
+    "react-leaflet": "^5.0.0",
+    "react-router-dom": "^7.13.0",
+    "recharts": "^3.7.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.1",
+    "vite": "^7.2.4"
+  }
+}
